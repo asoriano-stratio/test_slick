@@ -6,8 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="test-slick" />
         <module name="testslick" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="test-slick" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

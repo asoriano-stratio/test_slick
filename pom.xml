@@ -17,6 +17,11 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.12</version>
+        </dependency>
         <!-- Postgres driver -->
         <dependency>
             <groupId>org.postgresql</groupId>
@@ -56,7 +61,6 @@
     <build>
         <finalName>${project.name}</finalName>
         <sourceDirectory>src/main/scala</sourceDirectory>
-        <testSourceDirectory>src/test/scala</testSourceDirectory>
 
         <plugins>
             <plugin>
