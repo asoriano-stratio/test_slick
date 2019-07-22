@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.stratio.spark:spark-mllib-local-2.2.0_2.11:2.3.1-389a251">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/stratio/spark/spark-mllib-local-2.2.0_2.11/2.3.1-389a251/spark-mllib-local-2.2.0_2.11-2.3.1-389a251.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/stratio/spark/spark-mllib-local-2.2.0_2.11/2.3.1-389a251/spark-mllib-local-2.2.0_2.11-2.3.1-389a251-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/stratio/spark/spark-mllib-local-2.2.0_2.11/2.3.1-389a251/spark-mllib-local-2.2.0_2.11-2.3.1-389a251-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

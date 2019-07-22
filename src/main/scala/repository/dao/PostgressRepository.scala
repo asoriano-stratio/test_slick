@@ -1,10 +1,12 @@
 package repository.dao
 
 import data.model.TestData
+import data.model.configuration.session.{MlWorkflowJobData, SessionData, SessionStatus}
 import org.slf4j.{Logger, LoggerFactory}
 import repository.CustomPostgresProfile
 import slick.jdbc.JdbcBackend
 import slick.jdbc.meta.MTable
+import slick.lifted.ProvenShape
 
 import scala.concurrent.{Await, Future}
 import scala.concurrent.duration._
@@ -39,12 +41,33 @@ class PostgressRepository(
     def * = (id, name, surname) <> ((TestData.apply _).tupled, TestData.unapply)
 
   }
-
   lazy val test = TableQuery[TestTable]
+
+  class SessionTable(tag: Tag) extends Table[SessionData](tag, schemaName, "sessionTable") {
+
+    def sessionId: Rep[String] = column[String]("sessionId", O.PrimaryKey)
+
+    def timestamp: Rep[Option[Long]] = column[Option[Long]]("timestamp")
+
+    def name: Rep[Option[String]] = column[Option[String]]("name")
+
+    def description: Rep[Option[String]] = column[Option[String]]("description")
+
+    def sessionStatus: Rep[SessionStatus] = column[SessionStatus]("sessionStatus")
+
+    def jobConfiguration: Rep[MlWorkflowJobData] = column[MlWorkflowJobData]("jobConfiguration")
+
+    def * : ProvenShape[SessionData] = (sessionId, timestamp, name, description, sessionStatus, jobConfiguration) <> ((SessionData.apply _).tupled, SessionData.unapply)
+  }
+  lazy val sessionTable = TableQuery[SessionTable]
+
+  val tables = Map("sessionTable" -> sessionTable, "test_table" -> test)
+
 
   def initialization(): Unit = {
     createSchema(schemaName.getOrElse("default"))
     tableCreation("test_table")
+    tableCreation("sessionTable")
   }
 
   /** ************************************************************************
@@ -76,7 +99,7 @@ class PostgressRepository(
 
   private def doCreateTable(name: String): Unit = {
     log.info(s"Creating table $name")
-    val action = test.schema.create.transactionally
+    val action = tables(name).schema.create.transactionally
 
     Try(Await.result(db.run(action), 20 seconds)) match {
       case Success(_) =>

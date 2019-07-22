@@ -14,9 +14,108 @@
         <slick.version>3.3.0</slick.version>
         <postgres.version>42.2.5</postgres.version>
         <slick.pg.version>0.18.0</slick.pg.version>
+        <transmogrifai.version>0.4.0</transmogrifai.version>
+        <spark.version>2.3.1-389a251</spark.version>
     </properties>
 
     <dependencies>
+        <!-- Spark dependencies -->
+        <dependency>
+            <groupId>com.stratio.spark</groupId>
+            <artifactId>spark-core-2.2.0_2.11</artifactId>
+            <version>${spark.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.stratio.spark</groupId>
+            <artifactId>spark-sql-2.2.0_2.11</artifactId>
+            <version>${spark.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.stratio.spark</groupId>
+            <artifactId>spark-mllib-2.2.0_2.11</artifactId>
+            <version>${spark.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.salesforce.transmogrifai</groupId>
+            <artifactId>transmogrifai-features_2.11</artifactId>
+            <version>${transmogrifai.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.apache.spark</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.salesforce.transmogrifai</groupId>
+            <artifactId>transmogrifai-core_2.11</artifactId>
+            <version>${transmogrifai.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.apache.spark</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.salesforce.transmogrifai</groupId>
+            <artifactId>transmogrifai-readers_2.11</artifactId>
+            <version>${transmogrifai.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.apache.spark</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.salesforce.transmogrifai</groupId>
+            <artifactId>transmogrifai-utils_2.11</artifactId>
+            <version>${transmogrifai.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.apache.spark</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.salesforce.transmogrifai</groupId>
+            <artifactId>transmogrifai-templates_2.11</artifactId>
+            <version>${transmogrifai.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.apache.spark</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.salesforce.transmogrifai</groupId>
+            <artifactId>transmogrifai-models_2.11</artifactId>
+            <version>${transmogrifai.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.apache.spark</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+
+        </dependency>
+        <dependency>
+            <groupId>com.salesforce.transmogrifai</groupId>
+            <artifactId>transmogrifai-cli_2.11</artifactId>
+            <version>${transmogrifai.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.apache.spark</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
