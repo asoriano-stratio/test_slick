@@ -12,7 +12,7 @@
         <scala.version>2.11.8</scala.version>
         <scala.binary.version>2.11</scala.binary.version>
         <slick.version>3.3.0</slick.version>
-        <postgres.version>42.2.5</postgres.version>
+        <postgres.version>42.3.3</postgres.version>
         <slick.pg.version>0.18.0</slick.pg.version>
         <transmogrifai.version>0.4.0</transmogrifai.version>
         <spark.version>2.3.1-389a251</spark.version>
